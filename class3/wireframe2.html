@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.1")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.1/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    
+    <style>
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid
+      }
+      .box {
+        border: 1px solid;
+        min-height: 100px;
+      }
+      .nav {
+        min-height: 50px;
+      }
+
+      .header {
+        border-bottom: 1px solid
+      }
+
+      .banner {
+        height: 400px;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="wrapper  text-center">
+      <!-- header -->
+      <div class="row header q-px-xl">
+        <div class="col-12">
+
+          <div class="row q-col-gutter-lg">
+
+            <!-- logo -->
+            <div class="col-3">
+              <div class="box q-my-sm">
+                <span class="text-h3">Logo</span>
+              </div>
+            </div>
+            <!-- navigation -->
+            <div class="col-9">
+              <div class="box q-mt-xl nav">
+                <span class="">Navigation</span>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner -->
+
+      <div class="row q-px-xl q-mb-lg" >
+        <div class="col-12">
+          <div class="box banner q-mt-lg">
+            <span>Banner</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+
+      <div class="row q-col-gutter-lg q-px-xl q-md-lg q-mb-lg">
+        <div class="col-4">
+          <div class="box">
+            <span>Feature 1</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="box">
+            <span>Feature 2</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="box">
+            <span>Feature 3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div class="row">
+        <div class="col-12">
+          <div class="box">
+            <span>Footer</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.1/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {}
+        },
+        methods: {},
+        // ...etc
+      })
+    </script>
+  </body>
+</html>

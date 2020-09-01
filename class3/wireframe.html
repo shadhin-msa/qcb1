@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.1")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.1/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <style>
+      .box {
+        border:  1px solid black;
+        min-height: 100px;
+      }
+
+      .body {
+        height: 400px;
+      }
+    </style>
+  </head>
+  
+
+  <body>
+
+
+    <h1>Hello</h1>
+
+    <div class="row q-mb-xl q-pl-xl q-pr-xl">
+      <div class="col-12">
+        <div class="box text-center">
+          <div class="text-h3">HEADER</div>
+          <div class="text-subtitle1">(fierst thing you want users to see)</div>
+        </div>
+      </div>
+    </div>
+    <div class="row q-px-xl q-mb-xl">
+      <div class="col-12 ">
+        <div class="row box body text-center items-center ">
+          <div class="col-12">
+            <div class="text-h3">Body</div>
+            <div class="text-subtitle1">(follwed by the content)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row q-mb-xl q-pl-xl q-pr-xl">
+      <div class="col-12">
+        <div class="box text-center">
+          <div class="text-h3">Footer</div>
+          <div class="text-subtitle1">(typically less important staff)</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.1/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {}
+        },
+        methods: {},
+        // ...etc
+      })
+    </script>
+  </body>
+</html>
