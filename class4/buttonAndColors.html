@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+      .box {
+        border:  1px solid black;
+        min-height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- 
+      primary
+      secondary
+      positive
+      negative
+      warnnning
+     -->
+    <div id="q-app" class="row items-center">
+      <div class="col-12 box bg-green-3 text-green-8 text-center">
+          <div class="text-h3">
+            Hello World
+          </div>
+      </div>
+      <div class="col-12 box bg-primary text-secondary text-center">
+          <div class="text-h3">
+            Hello World
+          </div>
+      </div>
+      <div class="col-12 text-info">
+        
+        <div class="text-h3 text-negative">
+          Negative
+        </div>
+        <div class="text-h3 text-positive">
+          positive
+        </div>
+        
+      </div>
+      <div class="text-h3 text-warning">
+        warning
+      </div>
+
+      <q-btn color="secondary" label="Secondary" />
+    </div>
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {}
+        },
+        methods: {},
+        // ...etc
+      })
+    </script>
+  </body>
+</html>
