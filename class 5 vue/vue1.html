@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <div id="q-app">
+      <h3>
+        welcome to Vue Js
+      </h3>
+      <div class="row justify-center">
+        <div class="col-6">
+          {{myName}}
+          <div class="text-h3">My Name Is {{myName}}</div>
+          <div>
+
+            <q-input v-model="text" label="1st input" />
+            <q-btn color="secondary" label="Show Text" @click="showText" ></q-btn>
+            <q-btn color="primary" label="Change My Name" @click="robot"  ></q-btn>
+            
+          </div>
+          <q-input v-model="myName" label="2nd input" />
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+
+        el: '#q-app',
+        data: function () {
+          return {
+            myName: "",
+            text: '',
+            text1: '',
+            text2: '',
+          }
+        },
+        methods: {
+          robot () {
+            if(this.myName === 'Rafi') {
+              this.myName = 'robot'
+            } else {
+              this.myName = 'Rafi'
+            }
+            // this.myName = 'robot'
+            console.log('robot is clicked')
+            console.log(this.myName)
+          },
+
+          showText () {
+            this.myName = this.text
+            console.log(this.text)
+          }
+        },
+        // ...etc
+
+      })
+    </script>
+  </body>
+</html>

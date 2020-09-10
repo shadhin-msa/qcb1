@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <div id="q-app">
+      <h3>
+        welcome to Vue Js
+      </h3>
+      <div class="row justify-center q-col-gutter-md q-px-xl">
+        <div class="col-6">
+          <!-- <q-input v-model="name" label="name"></q-input> -->
+          <q-input v-model="fname" label="First"></q-input>
+          <q-input v-model="lname" label="Last"></q-input>
+          <q-input v-model="age" label="Age"></q-input>
+          <q-input v-model="sex" label="Sex"></q-input>
+          <q-input v-model="address" label="Address"></q-input>
+          <q-input v-model="mobile" type="number" label="Mobile"></q-input>
+        </div>
+        <div class="col-6">
+          <div class="text-h5">My Name {{fullName}} </div>
+          <div class="text-h5">My Name {{fullName2}} </div>
+
+          <div><b>First Name:</b> {{fname}} </div>
+          <div><b>Last Name:</b> {{lname}} </div>
+          <div><b>My Age:</b> {{age}} </div>
+          <div><b>Sex:</b> {{sex}}</div>
+          <div><b>Adress:</b> {{address}}</div>
+          <div><b>Mobile:</b> {{mobile}}</div>
+          <div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+
+        el: '#q-app',
+        data: function () {
+          return {
+            name: '',
+            age: '',
+            sex: '',
+            address: '',
+            mobile: '',
+            fname: '_ ',
+            lname: ' _ '
+          }
+        },
+        computed: {
+          fullName () {
+            let result = ''
+            result = '( ' + this.fname + ' ' + this.lname + ' )'
+            return result
+          }
+        },
+        methods: {
+        },
+
+        // ...etc
+
+      })
+    </script>
+  </body>
+</html>
