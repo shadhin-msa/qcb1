@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .box.google{
+            /* border: 1px solid black; */
+            min-height: 20px;
+            border-right: hidden;
+            border-left: hidden;
+        }
+        /* .box.business{
+            border: 1px solid black;
+            min-height: 20px;
+            border-left: hidden; */
+        }
+        /* .wrapper.one{
+            border:2px solid;
+            max-width: 1000px;
+            margin: 0 auto;
+        } */
+        /* .box.sample{
+            
+            margin-left: 462px;
+        }
+        .box.personal{
+            border: 1px solid black;
+            margin-left: 462px;
+        } */
+        /* .text-h6.for{
+            margin-left: 677px;
+        } */
+        /* .wrapper{
+            border: 2px solid;
+            margin: 0 auto;
+            max-width: 1000px;
+        } */
+        .box.sample{
+            /* text-align: center; */
+            /* margin-top: 123px; */
+        }
+        .text-h4.create{
+            /* margin-left: 400px; */
+            
+        }
+        .box.personal{
+            border: 1px solid;
+            min-height: 200px;
+            min-width: 10px;
+        }
+       
+        /* .box.lower{
+            border: 1px solid;
+            min-height: 300px;
+            /* min-width: 10px */
+        } */
+        /* .box.four{
+            border: 1px solid white;
+            min-height: 150px;
+        } */
+        /* .box{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        } */
+        .box.imagerandom{
+            border: 1px solid;
+            min-height: 150px;
+            margin-top: 40px;
+        }
+        .box.excel{
+            text-align: center;
+        }
+        .box.open{
+            /* border: 1px solid black;
+            min-height: 150px; */
+        }
+        .box.insights{
+            /* margin-left: 80px; */
+        }
+        .box.do{
+            /* margin-left: 240px; */
+        }
+        .box.never{
+            /* margin-left: 240px; */
+        } 
+        .box.start{
+            margin-right:200px;
+            margin-top: 100px;
+        }
+        .box.follow{
+            /* margin-left: 200px; */
+            border-bottom: 1px solid grey;
+        }
+        .box.about{
+            /* margin-left: 250px; */
+        }
+        .s2CenterArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .box.make{
+            MARGIN-LEFT: -30px;
+    MARGIN-TOP: -7px;
+}
+        }
+        .sectionInnerPadding{
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .section2{
+            background-image: url("https://www.google.com/sheets/about//images/sheets/banner-1600.jpg");
+        }
+        .s3CenterArea{
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .section3{
+            /* background-image: url(https://www.google.com/sheets/about//images/en/sheets-animation/1-ani.png); */
+        }
+        .s4CenterArea{
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .section4{
+            /* background-image: url("https://www.google.com/sheets/about//images/en/templates.png"); */
+        }
+        .button.view{
+            margin-left: 600px;
+            /* display: inline-block;
+    width: auto; */
+        }
+        /* .buttoncenter{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        } */
+        .s5CenterArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .s6centerArea{
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .s7centerArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .sectionInnerPaddingg{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .s8centerArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .imageOne{
+            text-align: center;
+        }
+        .business {
+            /* padding-bottom: 50px; */
+        }
+        .s9CeterArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .immg{
+            padding-left: 57px;
+        }
+        .section9{
+            background-image: url(https://www.google.com/sheets/about//images/en/graph.png);
+        }
+        .s10centerArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .domore{
+            padding-left: 112px;
+        }
+        .s11centerArea{
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .bcimg{
+            background-image: url(https://www.google.com/sheets/about//images/en/devices.png);
+            background-size: 85% auto;
+        }
+        .S12CenterArea{
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .s12centerArea{
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+    </style>
+  </head>
+
+  <body>
+      <div id='q-app'>
+
+    <div class="row q-mt-lg">
+        <div class="col-10 q-px-xl">
+            <div class="box google q-col-gutter-md">
+                <span class="text-h6">Google</span>
+                <span class="text-h6">Docs</span>
+                <span class="text-h6">Sheets</span>
+                <span class="text-h6">Slides</span>
+                <span class="text-h6">Forms</span>
+                <!-- <span class="text-h6 for">For Business</span>
+                <span class="text-h6">Help</span> -->
+            </div>
+        </div>
+        <div class="col q-pl-xm">
+            <div class="box business q-col-gutter-md ">
+                <span class="text-h6">For business</span>
+                <span class="text-h6">Help</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row section2 sectionInnerPadding">   
+        <div class="s2CenterArea">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="box text-grey-1 sample q-mt-xl q-px-xl">
+                        <span class="  text-h4 create">Creating powerful spreedsheet</span>
+                    </div>
+                </div>
+                <div class="col-6 q-mt-xl q-px-md">
+                    <div class="box q-pt-md personal bg-grey-3 text-grey-7 text-center items-center ">
+                        <span class="text-h5">Personal</span>
+                        <div class="row q-mt-sm q-mb-sm">
+                            <div class="col-12">
+                                <img src="https://www.google.com/sheets/about//images/about/sheets-icon.svg" alt="">
+                            </div>
+                        </div>
+                        <span class="text-subtitles2">With google sheets U can create, edit and</span><br>
+                        <span class="text-subtitles2">Collaborate wherever you are, for free</span><br>
+                        
+                        <div class="button q-mt-sm q-mb-sm">
+                            <q-btn color="primary" label="Go to google sheets" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 q-mt-xl q-px-md">
+                    <div class="box q-pt-md q-pb-md business bg-grey-3 text-grey-8 text-center items-center ">
+                        <span class="text-h5">Business</span>
+                        <div class="row q-mt-sm q-mb-sm ">
+                            <div class="col-12">
+                                <img src="https://www.google.com/sheets/about//images/about/gsuite-logo.svg" alt="">
+                            </div>
+                        </div>
+
+                        
+                        <span class="text-subtitles2">The google sheets you love with added security</span><br>
+                        <span class="text-subtitles2">and control for teams.</span>
+                        <div class="button q-mt-sm q-mb-sm">
+                            <q-btn color="primary" label="Learn More" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+     
+    </div>
+    <div class="row q-mb-xl">
+        <div class="s3CenterArea">
+            <div class="row">
+                <div class="col-6 section3 q-mt-xl q-mb-xl ">
+                    <div class="image">
+                        <img src="https://www.google.com/sheets/about//images/en/sheets-animation/1-ani.png" alt="">
+                    </div>
+                </div>
+                <div class="col-6 q-mt-xl q-px-xl">
+                    <div class="box make text-grey-8">
+                        <span class="text-h4">Make it count</span>
+                        <div class="col-12">
+                            <div class="box sub">
+                                <span class="text-subtitles2">Google sheets makes your data pop with colorful </span> <br>
+                                <span class="text-subtitles2">charts and graphs. Built in formulas, pivot tables </span><br>
+                                <span class="text-subtitles2">and conditional formatting options save time and </span><br>
+                                <span class="text-subtitles2">and simplify common tasks. All for free </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row bg-grey-2">
+        <div class="s4CenterArea">
+            <div class="row">
+                <div class="col-12">
+                    <div class="box get text-center text-grey-8 items-center q-mt-xl q-px-xl q-mb-xl">
+        
+                            <span class="text-h4">Get a Head Start With Templates</span>
+                            <div class="col-12">
+                                <div class="box sub">
+                                    <span class="text-subtitles2">Choose from a wide variety of budgets,schedule and other pre made spreedsheets- all designed </span> <br>
+                                    <span class="text-subtitles2">to make your life that much better and that much easier </span>
+                       
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12 section4 q-mb-xl">
+                        <img src="https://www.google.com/sheets/about//images/en/templates.png" alt="">
+                    </div>
+                </div>
+                <div class="row q-mb-xl">
+                    <div class="col-12">
+                        <div class="buttoncenter">
+                            <div class="row">
+                                <div class="col-12 ">
+                                    <div class="button view ">
+                                        <q-btn color="primary" label="View All templates" />
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="button ">
+                            <q-btn color="primary" label="View All templates" />
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+   
+   
+    <div class="row ">
+        <div class="s5CenterArea">
+            <div class="row ">
+                <div class="col-6 sectionInnerPaddingg q-mt-xl q-px-xl">
+                    <div class="box  text-grey-8">
+                        <span class="text-h4">Get Your</span><br>
+                        <span class="text-h4">Spreedsheets anywhere</span><br>
+                        <span class="text-h4">Anytime</span>
+                        <div class="col-12 q-mb-sm">
+                            <div class="box sub">
+                                <span class="text-subtitles2">Access, create and edit your spreedsheet </span> <br>
+                                <span class="text-subtitles2">whereever you go from your phone, tablet or </span><br>
+                                <span class="text-subtitles2">computer-even when there is no connection</span>
+
+                                
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="button">
+                                <q-btn color="primary" label="Download the app " />
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 q-mt-xl q-px-xl">
+                    <div class="image">
+                        <img src="https://www.google.com/sheets/about//images/en/download.png" alt="">
+                    </div>
+                    <!-- <div>
+                        <span class="icon icon-check-blue"></span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="row bg-grey-2 sectionInnerPadding">
+        <div class="s6centerArea">
+            <div class="row">
+                <div class="col-6 q-mt-xl q-px-xl">
+                    <!-- <div class="box image q-col-gutter-sm">
+                        <img src="https://www.google.com/sheets/about//images/common/add-pam.jpg" alt="">
+                        <img src="https://www.google.com/sheets/about//images/common/add-person.png" alt="">
+                    </div> -->
+                    <div class="q-col-gutter-md">
+                        <img src="https://www.google.com/sheets/about//images/common/add-pam.jpg" alt="">
+                        <img src="https://www.google.com/sheets/about//images/common/add-tom.jpg" alt="">
+                        <img src="https://www.google.com/sheets/about//images/common/add-kim.jpg" alt="">
+                        <img src="https://www.google.com/sheets/about//images/common/add-person.png" alt="">
+                    </div>
+                    <div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-6 q-mb-xl q-mt-xl q-px-xl">
+                    <div class="box make q-mb-xl text-grey-7">
+                        <span class="text-h4">Do more together</span>
+                        <div class="col-12">
+                            <div class="box sub">
+                                <span class="text-subtitles2">With google sheets everyone can work together in</span> <br>
+                                <span class="text-subtitles2">the same spreedsheet at the same time </span><br>
+                            <div class="col-12 q-mb-md">
+                                <span class="text-h7 text-primary">Share with anyone</span>
+                            </div>
+                            <div class="col-12 q-mb-md">
+                                <span class="text-h7 text-primary">Eidt in real time </span>
+                            </div>
+                            <div class="col-12">
+                                <span class="text-h7 text-primary">Chat & Comment</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+    <div class="row q-mb-xl">
+        <div class="s7centerArea">
+            <div class="row">
+                <div class="col-6 q-mt-xl q-px-xl">
+                    <div class="box never q-mt-xl  q-mb-xl text-grey-8">
+                        <span class="text-h4">Never Hit "Save" again</span><br>
+                       
+                        <div class="col-12">
+                            <div class="box sub">
+                                <span class="text-subtitles2">All your changes autometically save as you </span> <br>
+                                <span class="text-subtitles2">type as you can even use revision history to see old </span><br>
+                                <span class="text-subtitles2">versions of the same spreedsheet</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 q-mt-xl q-px-xl">
+                    <div class="imagerandom ">
+                        <img src="https://www.google.com/sheets/about//images/sheets/auto-save.png" alt="">
+                    </div>
+                    <!-- <div>
+                        <span class="icon icon-check-blue"></span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+       
+        
+    </div>
+    <div class="row bg-grey-2">
+        <div class="s8centerArea">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="box excel text center text-grey-8 q-mt-xl q-px-xl">
+                        <span class="text-h4">Works with Excel</span>
+                    </div>
+                </div>
+                <div class="col-4 q-mb-xl q-mt-sm q-px-xl">
+                    <div class="row q-mb-sm ">
+                        <div class="col-12 imageOne">
+                            <img src="https://www.google.com/sheets/about//images/en/icon-open.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box open ">
+                        <span class="text-h6">Open,edit and save</span><br>
+                        <span class="text-h6">Microsoft Excel files with the</span><br>
+                        <span class="text-h6 text-primary">Chrome extension</span><br>
+                    </div>
+                </div>
+                <div class="col-4 q-mb-xl q-mt-sm q-px-xl">
+                    <div class="row q-mb-sm ">
+                        <div class="col-12 imageOne">
+                            <img src="https://www.google.com/sheets/about//images/en/icon-save.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box open ">
+                        <span class="text-h6">Convert Excel files to Google</span><br>
+                        <span class="text-h6">Sheets and Vice versa</span><br>
+                        
+                    </div>
+                </div>
+                <div class="col-4 q-mb-xl q-mt-sm q-px-xl">
+                    <div class="row q-mb-sm ">
+                        <div class="col-12 imageOne">
+                            <img src="https://www.google.com/sheets/about//images/en/icon-free.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box open ">
+                        <span class="text-h6">Don't worry about file</span><br>
+                        <span class="text-h6">formats again</span><br>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+    <div class="row section9">
+        <div class="s9CeterArea ">
+            <div class="row">
+                <div class="col-12">
+                    <div class="box insights text-center text-grey-8 items-center q-mt-xl q-px-xl q-mb-xl">
+        
+                            <span class="text-h4">Insights, Instantly</span>
+                            <div class="col-12">
+                                <div class="box sub">
+                                    <span class="text-subtitles2">Use the explore panel to get an overview of your data from informative summaries to a </span> <br>
+                                    <span class="text-subtitles2">section of prepopulated charts to choose from </span>
+                       
+                                </div>
+                            </div>
+                    </div>
+                    <div class="img">
+                        <div class="row">
+                            <div class="col-12 immg">
+                                <img src="https://www.google.com/sheets/about//images/en/insights-animation/laptop-1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    
+              
+
+            </div>
+        </div>
+      
+    </div>
+    <div class="row bg-grey-3">
+        <div class="s10centerArea">
+            <div class="row q-mb-xl">
+                <div class="col-6 domore q-mt-xl q-px-xl">
+                    <div class="box do q-mt-xl text-grey-8">
+                        <span class="text-h4">Do more with add-ons</span><br>
+                       
+                        <div class="col-12">
+                            <div class="box sub">
+                                <span class="text-subtitles2">Take your sheet experience even further with add- </span> <br>
+                                <span class="text-subtitles2">ons. try the another.... </span><br>
+                               
+                                
+                            </div>
+                            <div class="col-12 q-mt-sm">
+                                <div class="box">
+                                    <span class="text-subtitles2">See what else you can add ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 q-mt-xl q-px-xl q-mb-xl">
+                    <div class="excelimage ">
+                        <img src="https://www.google.com/sheets/about//images/sheets/addons.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+        
+    </div>
+    <div class="row">
+        <div class="s11centerArea">
+            <div class="row">
+                <div class="col-6 bcimg q-px-xl">
+                    <div class="box image">
+                        <!-- <img src="https://www.google.com/sheets/about//images/en/devices.png" alt=""> -->
+                    </div>
+                </div>
+                <div class="col-6 q-mb-xl q-px-xl">
+                    <div class="box start text-grey-8">
+                        <span class="text-h4">Get started Now</span><br>
+                        
+                        <div class="col-12">
+                            <div class="box sub">
+                                <span class="text-subtitles2">Sheets isready to go when you are, Simply create a </span> <br>
+                                <span class="text-subtitles2">spreedsheet through your browser or download </span><br>
+                              
+                                <div class="button">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <q-btn color="primary" label="get google sheets" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-12">
+                                    <q-btn color="primary" label="Primary" />
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       
+        
+    </div>
+    <div class="row bg-grey-3 ">
+        <div class="S12CenterArea">
+            <div class="row q-mb-xl">
+                <div class="col-12  q-mb-md">
+                    <div class="box follow q-mb-sm q-mt-sm">
+                        <span class="text-subtitle2">Follow</span>
+                    </div>
+                </div>
+                <div class="col-3  q-mt-sm ">
+                    <div class="box about">
+                        <span class="text-h9">About Google Docs</span>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Google docs</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Google sheets</span>
+                            </div>
+                        </div><div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Google slides</span>
+                            </div>
+                        </div><div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Google forms</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-3  q-mt-sm ">
+                    <div class="box about">
+                        <span class="text-h9">Download & More</span>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Docs for android</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Sheets for android</span>
+                            </div>
+                        </div><div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Slides for android</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-3  q-mt-sm ">
+                    <div class="box about">
+                        <span class="text-h9">Support</span>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Docs help center</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Sheets for android</span>
+                            </div>
+                        </div><div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Slides for android</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-3  q-mt-sm ">
+                    <div class="box about">
+                        <span class="text-h9">Download & More</span>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Docs for android</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Sheets for android</span>
+                            </div>
+                        </div><div class="col-12">
+                            <div class="box text-primary">
+                                <span class="text-subtitle2">Slides for android</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <div class="row bg-grey-3">
+            <div class="s12centerArea">
+                <div class="row">
+                    <div class="col-12 q-col-gutter-md">
+                        <span class="text-h7">Google</span>
+                        <span class="text-h7">Privacy</span>
+                        <span class="text-h7">Terms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {}
+        },
+        methods: {},
+        // ...etc
+      })
+    </script>
+  </body>
+</html>
