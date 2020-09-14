@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <style>
+      .img{
+        border-radius: 50%;
+        }
+
+      .box.sample{
+        border: 1px solid black;
+        max-height: 100px;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+
+        <div id="q-app">
+               <div class="wrapper">
+                 <div class="row justify-center q-mb-xl q-mt-xl q-px xl">
+                    <div class="col-4">
+                      <div class="box sample">
+                        <span class="text-h3">I am a robot</span>
+                      </div>
+                      <!-- <img src="img_avatar.png" alt="Avatar"> 
+                      <q-input v-model="" label="Write something" :dense="dense" />
+                      <span class="text-h4">I am a robot</span>
+                    </div>
+                    <q-btn outline size="xl" color="primary" @click="submit" icon="person"  >Submit</q-btn> --> 
+                 </div>
+               </div> 
+        </div>
+
+
+
+
+
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {}
+        },
+        methods: {},
+        // ...etc
+      })
+    </script>
+  </body>
+</html>
