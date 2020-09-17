@@ -58,6 +58,11 @@
     <!-- <div class="Zaman">
       <span class="text-h2">Abdullah Al Rafi</span>
     </div> -->
+    <img
+      alt="Quasar logo"
+      src="~assets/quasar-logo-full.svg"
+    >
+    <q-btn color="primary" to="/p1" >go to Page 1</q-btn>
   </q-page>
 </template>
 
