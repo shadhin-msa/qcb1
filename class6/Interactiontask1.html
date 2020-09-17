@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.14.0")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.14.0/dist/quasar.min.css" rel="stylesheet" type="text/css">
+
+
+    <style>
+      .wrapper{
+        max-width: 1000px;
+        margin: 0 auto;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="q-app">
+      <div class="wrapper">
+        <div class="row  q-px-xl q-mt-xl q-mb-xl">
+          <div class="col-6">
+              <div class="row q-col-gutter-sm">
+                  <div class="col">
+                      <q-input v-model="first_name" label="First Name"></q-input>
+                  </div>
+                  <div class="col">
+                      <q-input v-model="last_name" label="Last Name"></q-input>
+                  </div>
+              </div>
+          
+              <q-input v-model="user_name" label="User Name"></q-input>
+              <q-input v-model="email_address" type="email" label="Email Address"></q-input>
+              <q-input v-model="mobile"   mask="### #### ###"
+              label="Mobile"></q-input>
+              <q-input v-model="DOB" type="date" label="DOB"></q-input>
+              <q-input v-model="Initial" label="Initial"></q-input>
+              <q-input
+                  filled
+                  v-model="colour"
+                  class="my-input"
+              >
+                  <template v-slot:append>
+                  <q-icon name="colorize" class="cursor-pointer">
+                      <q-popup-proxy transition-show="scale" transition-hide="scale">
+                      <q-color v-model="colour" />
+                      </q-popup-proxy>
+                  </q-icon>
+                  </template>
+            </q-input>
+            <div v-if="sex != ''">
+
+              <h4 v-if="sex === 'male'">Hi ! You Are a male</h1>
+                <h4 v-else>Hi ! ! You Are a Female</h1>
+            </div>
+              <div><b>SEX</b>
+              <div class="radio q-col-gutter-md">
+                  <q-radio v-model="sex" val="male" label="Male" />
+                  <q-radio  v-model="sex" val="female"label="Female" />
+              </div>
+              </div>
+  
+              <q-btn outline size="xl" color="primary" @click="submit" icon="person"  >Submit</q-btn>
+  
+             
+          </div>
+          <div class="col-6 bg-grey-3">
+              <div class=" q-mb-md" >
+                  <q-avatar :style="'background-color:' + colour">
+                    <q-icon name="person" ></q-icon>
+                  </q-avatar>
+                  
+                  </q-avatar>
+              </div>
+  
+              <div class="q-mb-md"><b>Full Name:{{total_name}}</b></div>
+              <div class="q-mb-md"><b>User Name: {{user_name}}</b></div>
+              <div class="q-mb-md"><b>Email: {{email_address}}</b></div>
+              <div class="q-mb-md"><b>Mobile: {{mobile}}</b></div>
+              <div class="q-mb-md"><b>DOB:{{DOB}}</b></div>
+              <div class="q-mb-md"><b>Initial: {{Initial}}</b></div>
+              <div class="q-mb-md"><b>Color:{{colour}}</b></div>
+              <div><b>Sex:{{sex}}</b></div>
+          </div>
+      </div>
+  
+      </div>
+
+      <div class="q-pa-md" :style="'max-width:' + 100 + 100 + 100 + 'px'">
+        <q-input
+          ref="input"
+          filled
+          v-model="model"
+          type="number"
+          label="Required Field"
+          :rules="[ rafi => rafi >= 18 || 'You are a child',  rafi => rafi <= 50 || 'You are old',  ]"
+        />
+    
+        <q-btn class="q-mt-sm" label="Reset Validation" @click="reset" color="primary"/>
+      </div>
+    
+
+    </div>
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.14.0/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {
+              first_name:"",
+              last_name: "",
+              user_name:"",
+              email_address:"",
+              mobile:"",
+              DOB:"",
+              Initial:"",
+              colour:"",
+              male:"",
+              female:"",
+              sex: "",
+              model:'',
+              rafi: 'Bad boy'
+          }
+        },
+        computed:{
+            total_name(){
+              // let rafi = 'good boy'
+                return this.first_name + " " + this.last_name
+            }
+        },
+        methods: {
+          
+            submit(){
+              this.first_name="",
+              this.last_name="",
+              this.user_name="",
+              this.email_address="",
+              this.mobile="",
+              this.DOB="",
+              this.Initial="",
+              this.colour="",
+              this.sex=""
+            },
+
+            
+            // male(){
+            //     this.male="male"
+            // }
+
+            
+          reset () {
+            this.$refs.input.resetValidation()
+          }
+        },
+       
+      })
+    </script>
+  </body>
+</html>

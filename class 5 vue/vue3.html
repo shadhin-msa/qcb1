@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <div id="q-app">
+      <h3>
+        welcome to Vue Js 3
+      </h3>
+      {{sampleArray}}
+
+      <template>
+        <div class="q-pa-md" style="max-width: 350px">
+          <!-- <q-list bordered>
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="bluetooth" />
+              </q-item-section>
+      
+              <q-item-section>Icon as avatar</q-item-section>
+            </q-item>
+      
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-avatar color="teal" text-color="white" icon="bluetooth" />
+              </q-item-section>
+      
+              <q-item-section>Avatar-type icon</q-item-section>
+            </q-item>
+      
+          </q-list> -->
+
+          <!-- For Loop in vue (html) -->
+          <!-- <div class="q-list" v-for=" i in 5" :key="i" >
+            <div class="q-item">hi {{i}}</div>
+          </div> -->
+
+          
+          <div class="q-list" v-for=" item in advancArray" :key="item" >
+            <!-- <div class="q-item">hi {{item}}</div> -->
+            <div class="col-6">Rafi ID: {{item.id}} </div>
+            <div class="col-6">message: {{item.message }} </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+
+        el: '#q-app',
+        data: function () {
+          return {
+            sampleArray: [2,6,2,7],
+            advancArray: [ 
+            ],
+          }
+        },
+        computed: {
+
+        },
+        methods: {
+          insertIntoArray (msg) {
+            this.advancArray.push({id: 134, message: 'asefdasdf' })
+          }
+        },
+
+        // ...etc
+
+      })
+    </script>
+  </body>
+</html>
