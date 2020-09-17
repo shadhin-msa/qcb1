@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.14.0")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.14.0/dist/quasar.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .wrapper{
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .box.one{
+            border: 1px solid black;
+            max-height: 300px;
+        }
+        .avatar{
+            vertical-align: middle;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+    </style>
+  </head>
+
+  <body>
+
+
+    <div id="q-app">
+
+        <div class="wrapper">
+            <div class="row justify-center q-col-gutter-md q-mt-xl q-mb-xl q-px-xl">
+                <div class="col-4">
+                   <div class="box one q-pa-md text-center">
+                       <span class="text-h4">Sachin</span><br>
+                       <img src="user1.webp" alt="avatar" class="avatar">
+                       <div class="q-mb-sm">
+                           <q-input v-model="sachinmsg" label="Write something" />
+                       </div>
+                       <div>
+                           <q-btn outline size="md" color="primary" @click=" submitsachinmsg" iceon="person">Submit</q-btn>
+                       </div>
+                   </div>
+                </div>
+                <div class="col-4">
+                    <div class="box one q-pa-md text-center">
+                        <span class="text-h4">Rahul</span><br>
+                        <img src="user2.webp" alt="avatar" class="avatar">
+                        <div class="q-mb-sm">
+                            <q-input v-model="rahulmsg" label="Write something" />
+                        </div>
+                        <div>
+                            <q-btn outline size="md" color="primary" @click="submitrahulmsg" iceon="person">Submit</q-btn>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-4">
+                    <div class="box one q-pa-md text-center">
+                        <span class="text-h4">Gavaskar</span><br>
+                        <img src="user3.jpg" alt="avatar" class="avatar">
+                        <div class="q-mb-sm">
+                            <q-input v-model="gavaskarmsg" label="Write something" />
+                        </div>
+                        <div>
+                            <q-btn outline size="md" color="primary" @click="submitgavaskarmsg"iceon="person">Submit</q-btn>
+                        </div>
+                    </div>
+                 </div>
+
+                 <div class="col-6">
+                     <div class="box">
+                         <q-list bordered>
+                            <q-item v-for="items in objectarray" clickable v-ripple>
+                                <q-item-section>{{items.message}}</q-item-section>
+                                <q-item-section avatar>
+                                  <q-avatar rounded>
+                                    <img src="{{items.img}}">
+                                  </q-avatar>
+                                </q-item-section>
+                              </q-item>
+                         </q-list>
+                     </div>
+                 </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.14.0/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {
+            sachinmsg: "",
+            rahulmsg:"",
+            gavaskarmsg:"",
+
+            img1:"user1.webp",
+            img2:"user2.webp",
+            img3:"user3.jpg",
+
+           
+            objectarray:[
+              
+              
+
+            ]
+           
+          }
+        },
+        methods: {
+          submit(message, img){
+            let object={message, img}
+            this.objectarray.push(object)
+          },
+          submitsachinmsg(){
+            this.submit(this.sachinmsg, this.img1)
+            this.sachinmsg = ""
+          },
+          submitrahulmsg(){
+            this.submit(this.rahulmsg, this.img2)
+            this.rahulmsg = ""
+          },
+          submitgavaskarmsg(){
+            this.submit(this.gavaskarmsg, this.img3)
+            this.gavaskarmsg = ""
+          }
+        },
+        // ...etc
+      })
+    </script>
+  </body>
+</html>
