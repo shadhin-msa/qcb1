@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <style>
+      .img{
+        border-radius: 50%;
+        }
+
+      .box.sample{
+        border: 1px solid black;
+        min-height: 100px;
+      }
+
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+
+        <div id="q-app">
+          <div class="wrapper">
+            <div class="row justify-center q-col-gutter-md q-mb-xl q-mt-xl q-px-xl">
+              <div class="col-4">
+                <div class="box sample q-pa-md text-center">
+                  <span class="text-h3">Jamal</span>
+                  <img :src="user1Img" alt="Avatar" /> 
+                  <div class="q-mb-sm">
+                    <q-input v-model="user1NewMessage"  label="Write something" />
+                  </div>
+                  <div>
+                    <q-btn outline size="md" color="primary" @click="submitUser1Message" icon="person"  >Submit</q-btn> 
+                  </div>
+
+                
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="box sample q-pa-md text-center">
+                  <span class="text-h3">Kamal</span>
+                  <img :src="user2Img" alt="Avatar" /> 
+                  <div class="q-mb-sm">
+                    <q-input v-model="user2NewMessage"  label="Write something" />
+                  </div>
+                  <div>
+                    <q-btn outline size="md" color="primary" @click="submitUser2Message" icon="person"  >Submit</q-btn> 
+                  </div>
+
+                
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="box sample q-pa-md text-center">
+                  <span class="text-h3">Tomal</span>
+                  <img :src="user3Img" alt="Avatar" /> 
+                  <div class="q-mb-sm">
+                    <q-input v-model="user3NewMessage"  label="Write something" />
+                  </div>
+                  <div>
+                    <q-btn outline size="md" color="primary" @click="submitUser3Message" icon="person"  >Submit</q-btn> 
+                  </div>
+
+                
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="box">
+                  <q-list bordered>
+                    <q-item v-for="object in objectArray" clickable v-ripple>
+                      <q-item-section>{{object.message}}</q-item-section>
+                      <q-item-section avatar>
+                        <q-avatar rounded>
+                          <img :src="object.userimg">
+                        </q-avatar>
+                      </q-item-section>
+                    </q-item>
+              
+                  </q-list>
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+
+
+
+
+
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+    
+    <script>
+      /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+       */
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {
+            user1NewMessage: '',
+            user2NewMessage: '',
+            user3NewMessage: '',
+
+            user1Img: 'user1.png',
+            user2Img: 'user2.png',
+            user3Img: 'user3.png',
+            
+            objectArray: [],
+            stringArray: [
+              'hi',
+              'shadhin',
+            ]
+          }
+        },
+        methods: {
+          submit (msgPerameter, imgPerameter) {
+            let newMessageObject = {}
+            newMessageObject.message = msgPerameter
+            // { message: 'i am shadhin'}
+            newMessageObject.userimg = imgPerameter
+            // { message: 'i am shadhin', userimg: 'user1.png'}
+            
+            this.objectArray.push(newMessageObject)
+          },
+          submitUser1Message () {
+            this.submit(this.user1NewMessage, this.user1Img )
+            this.user1NewMessage = ''
+          },
+          submitUser2Message () {
+            this.submit(this.user2NewMessage, this.user2Img)
+            this.user2NewMessage = ''
+          },
+          submitUser3Message () {
+            this.submit(this.user3NewMessage, this.user3Img)
+            this.user3NewMessage = ''
+          }
+        },
+        // ...etc
+      })
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+    <!-- SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyCapcbxik3Coih2CEbSjHEVk7PfCXIvwiA",
+        authDomain: "project-noakhali-with-qcb1.firebaseapp.com",
+        databaseURL: "https://project-noakhali-with-qcb1.firebaseio.com",
+        projectId: "project-noakhali-with-qcb1",
+        storageBucket: "project-noakhali-with-qcb1.appspot.com",
+        messagingSenderId: "350577226133",
+        appId: "1:350577226133:web:3c51c930a36ea7cd9e069c",
+        measurementId: "G-LM679JHLHR"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // console.log(fP)
+      // console.log(fP.name)
+      var db = firebase.firestore();
+
+      // Add data
+      db.collection("users").add({
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+      })
+      .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          // console.log("Document written with ID: ", docRef);
+      })
+      .catch(function(error) {
+          console.error("Error adding document: ", error);
+      });
+
+      // Read Data
+      db.collection("users").get()
+      .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              console.log(`${doc.id} => ${doc.data()}`);
+
+              let data = doc.data()
+                console.log({ id : {data}});
+          });
+      })
+      .catch(function(error) {
+          console.error("Error adding document: ", error);
+      });
+
+    </script>
+  </body>
+</html>
