@@ -8,6 +8,15 @@ const routes = [
       { path: 'p1', component: () => import('pages/Page1.vue') },
       { path: 'p2', component: () => import('pages/Page2.vue') },
       { path: 'p3', component: () => import('pages/Page3.vue') },
+      { path: 'p4', component: () => import('pages/Page4.vue') },
+      { path: 'p5', component: () => import('pages/Page5.vue') },
+      { path: 'p6', component: () => import('pages/Page6.vue') },
+      { path: 'p7', component: () => import('pages/Page7.vue') },
+      { path: 'p8', component: () => import('pages/Page8.vue') },
+      { path: 'p9', component: () => import('pages/Page9.vue') },
+      { path: 'p10', component: () => import('pages/Page10.vue') },
+      { path: 'p11', component: () => import('pages/Page11.vue') },
+      { path: 'p12', component: () => import('pages/Page12.vue') },
     ]
   },
 
