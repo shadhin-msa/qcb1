@@ -39,7 +39,7 @@
                 <q-input v-model="message" label="Write something" />
             </div>
             <div>
-                <q-btn outline size="md" color="primary" @click="submit" icon="person">Submit</q-btn>
+                <q-btn outline size="md" color="primary" @click="submit('Nx3m1Gv1YDmvXMg5Bfz3')" icon="person">Submit</q-btn>
 
             </div>
         </div>
@@ -47,18 +47,16 @@
         <div class="col-6">
           <div class="box">
               <q-list bordered>
-                 <q-item  v-for="item in userInfo" :key="item.id" clickable v-ripple>
-                   <div v-for="message in item.msg" :key="message.id">
-                   
-                  
+                 <div  v-for="item in userInfo" :key="item.id" clickable v-ripple>
+                   <q-item v-for="message in item.msg" :key="message.id">
                      <q-item-section >{{message.text}}</q-item-section>
                      <q-item-section avatar>
                        <q-avatar rounded>
                          <img :src="item.image">
                        </q-avatar>
                      </q-item-section>
-                    </div>
-                   </q-item>
+                    </q-item>
+                   </div>
               </q-list>
           </div>
       </div>
@@ -81,71 +79,8 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
-
+<script  src="initFirebase.js"></script>
 <script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyD429JAfsxFCcuXuc4pz3ZJLSLEgaYFshI",
-    authDomain: "fir-chat-453e9.firebaseapp.com",
-    databaseURL: "https://fir-chat-453e9.firebaseio.com",
-    projectId: "fir-chat-453e9",
-    storageBucket: "fir-chat-453e9.appspot.com",
-    messagingSenderId: "869254833780",
-    appId: "1:869254833780:web:872ca9a70505e058cd1321",
-    measurementId: "G-8YTKGS6C2B"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  var db= firebase.firestore();
-
-  let userInfo = [];
-
-  
-
-
-
-     // Read Data
-     db.collection("users").get()
-      .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-
-            let userData= {};
-
-          userData.id = doc.id
-          userData.name = doc.data().name
-          userData.image = doc.data().image
-          userData.msg = []
-
-        db.collection('users/' + doc.id + '/message').get()
-        .then((subCollectionSnapshot) => {
-        subCollectionSnapshot.forEach((subDoc) => {
-         let msgObject = {};
-         msgObject.id = subDoc.id
-         
-         msgObject.text = subDoc.data().text
-          userData.msg.push(msgObject)
-          // console.log(subDoc.data());
-          
-        });
-      });
-
-      console.log(userData);
-      userInfo.push(userData)
-
-              // let data = doc.data()
-              //   console.log({ id : {data}});
-          }); 
-      })
-      .catch(function(error) {
-          console.error("Error adding document: ", error);
-      });
-      
-      
-
-
-
-
 </script>
     
     <script>
@@ -156,33 +91,59 @@
             name:"Jamal",
             message:"",
             img:"user1.webp",
-             
-            userInfo,
+            userInfo:[],
           }
         },
       
-        methods: {
-          submit (){
-
-          console.log("Submit word")
-            // Add data
-            db.collection('users/' + 'JeiHnJCwwpSkae0gaAcv' + '/message').add({
-              text: this.message
-
+methods: {
+  // Add data
+    submit (id){
+          db.collection('users/' + id + '/message')
+          .add({ 
+            text: this.message
           })
-          .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
-            // console.log("Document written with ID: ", docRef);
+          .then((docRef) => {
+            this.userInfo = []
+            this.getUserFromFireStore();
+            this.message = ""
           })
           .catch(function(error) {
             console.error("Error adding document: ", error);
           });
-          }
+       },
+    // Read Data
+    getUserFromFireStore(){
+    db.collection("users").get()
+      .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              let userData= {};
+              userData.id = doc.id
+              userData.name = doc.data().name
+              userData.image = doc.data().image
+              userData.msg = []
 
-        
-        },
-        // ...etc
+              db.collection('users/' + doc.id + '/message').get()
+              .then((subCollectionSnapshot) => {
+              subCollectionSnapshot.forEach((subDoc) => {
+              let msgObject = {};
+              msgObject.id = subDoc.id
+              msgObject.text = subDoc.data().text
+              userData.msg.push(msgObject)
+            });
+          });
+             this.userInfo.push(userData)
+          }); 
       })
+      .catch(function(error) {
+          console.error("Error adding document: ", error);
+      });
+      
+    }     
+    },
+    mounted(){
+      this.getUserFromFireStore()
+    }
+  })
     </script>
   </body>
 </html>
