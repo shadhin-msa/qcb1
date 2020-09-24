@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.13.2")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <style>
+      .img{
+        border-radius: 50%;
+        }
+
+      .box.sample{
+        border: 1px solid black;
+        min-height: 100px;
+      }
+
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+
+        <div id="q-app">
+
+          <!-- Header section  -->
+          <div class="row">
+            <div class="col-12 q-pa-lg box sample text-right"> 
+                <q-btn outline size="md" color="positive" @click="submitUser1Message" icon="person">Login</q-btn> 
+                <q-btn outline size="md" color="warning" @click="submitUser1Message" icon="person">Register</q-btn> 
+                <q-btn outline size="md" color="negative" @click="submitUser1Message" icon="person">LogOut</q-btn> 
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+        <!-- Main contain After Authorization  -->
+          <div class="wrapper">
+            <div class="row justify-center q-col-gutter-md q-my-xl q-px-xl">
+
+
+              <!-- Login Form  -->
+              <q-card style="width:400px">
+                <!-- close icon section -->
+          
+                <q-card-section class="row q-pb-none">
+                  <q-space />
+                  <q-btn icon="close" flat round dense v-close-popup />
+                </q-card-section>
+          
+                <!-- login user logo section -->
+          
+                <q-card-section class="text-center">
+                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
+                </q-card-section>
+          
+                <!-- User_id and Password input form section -->
+          
+                <q-card-section>
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="User Id">
+                    <template v-slot:append>
+                      <q-icon name="how_to_reg" color />
+                    </template>
+                  </q-input>
+          
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Password">
+                    <template v-slot:append>
+                      <q-icon name="vpn_key" color />
+                    </template>
+                  </q-input>
+          
+                  <div class="row justify-end">
+                    <q-btn color="secondary" icon-right="login" label="Submit" />
+                  </div>
+                </q-card-section>
+              </q-card>
+
+              <!-- Registration Form  -->
+              <q-card style="width:400px">
+                <!-- close icon section -->
+          
+                <q-card-section class="row q-pb-none">
+                  <q-space />
+                  <q-btn icon="close" flat round dense v-close-popup />
+                </q-card-section>
+          
+                <!-- login user logo section -->
+          
+                <q-card-section class="text-center">
+                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
+                </q-card-section>
+          
+                <!-- User_id and Password input form section -->
+          
+                <q-card-section>
+                  <!-- email element  -->
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Enter Your Email">
+                    <template v-slot:append>
+                      <q-icon name="email" color />
+                    </template>
+                  </q-input>
+                  
+                  <!-- name element  -->
+                    <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Enter Your Name">
+                      <template v-slot:append>
+                        <q-icon name="how_to_reg" color />
+                      </template>
+                    </q-input>
+                    <!-- Password Element  -->
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Set Password">
+                    <template v-slot:append>
+                      <q-icon name="vpn_key" color />
+                    </template>
+                  </q-input>
+          
+                  <div class="row justify-end">
+                    <q-btn color="secondary" icon-right="login" label="Submit" />
+                  </div>
+                </q-card-section>
+              </q-card>
+
+
+
+              <!-- profile After Authorization  -->
+              <div class="col-4" v-for="user in storedata" :key="user.id">
+                <div class="box sample q-pa-md text-center">
+                  <span class="text-h3">{{user.name}}</span>
+                  <img :src="user.imgURL" alt="Avatar" /> 
+                  <div class="q-mb-sm">
+                    <q-input v-model="user1NewMessage"  label="Write something" />
+                  </div>
+                  <div>
+                    <q-btn outline size="md" color="primary" @click="submitUser1Message" icon="person"  >Submit</q-btn> 
+                  </div>
+
+                
+                </div>
+              </div>
+              
+              <!-- <div class="col-6">
+                <div class="box">
+                  <q-list bordered>
+                    <q-item clickable v-ripple>
+                      <q-item-section></q-item-section>
+                      <q-item-section avatar>
+                        <q-avatar rounded>
+                          <img :src="">
+                        </q-avatar>
+                      </q-item-section>
+                    </q-item>
+              
+                  </q-list>
+                  
+                </div>
+              </div> -->
+           
+           
+            </div>
+          </div> 
+
+        </div>
+
+
+
+
+
+
+
+
+    <!-- Add the following at the end of your body tag -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.13.2/dist/quasar.umd.min.js"></script>
+
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+    <!-- SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
+   <!-- include external JS  -->
+   <script  src="init.js"></script>
+    
+    
+    <script>
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {
+            user1NewMessage: '',
+            storedata,
+            text:'',
+          }
+        },
+        computed:{
+         
+        },
+        mounted () {
+            this.console()
+        },
+        methods: {
+
+          console(){
+               console.log(this.storedata)
+          },
+
+          submit (msgPerameter, imgPerameter) {
+            let newMessageObject = {}
+            newMessageObject.message = msgPerameter
+            // { message: 'i am shadhin'}
+            newMessageObject.userimg = imgPerameter
+            // { message: 'i am shadhin', userimg: 'user1.png'}
+            
+            this.objectArray.push(newMessageObject)
+          },
+          submitUser1Message () {
+            this.submit(this.user1NewMessage, this.user1Img )
+            this.user1NewMessage = ''
+          },
+          submitUser2Message () {
+            this.submit(this.user2NewMessage, this.user2Img)
+            this.user2NewMessage = ''
+          },
+          submitUser3Message () {
+            this.submit(this.user3NewMessage, this.user3Img)
+            this.user3NewMessage = ''
+          }
+        },
+        // ...etc
+      })
+    </script>
+
+
+ 
+  </body>
+</html>
