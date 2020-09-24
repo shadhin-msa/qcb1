@@ -33,13 +33,13 @@
       <div class="row justify-center q-col-gutter-md q-mt-xl q-mb-xl q-px-xl">
         <div class="col-12">
           <div class="box one q-pa-md text-center">
-            <span class="text-h4">{{name}}{{userInfo.id}}</span><br>
+            <span class="text-h4">{{name}}</span><br>
             <img :src="img" alt="avatar" class="avatar">
             <div class="q-mb-sm">
                 <q-input v-model="message" label="Write something" />
             </div>
             <div>
-                <q-btn outline size="md" color="primary" @click="submit('Nx3m1Gv1YDmvXMg5Bfz3')" icon="person">Submit</q-btn>
+                <q-btn outline size="md" color="primary" @click="submit('JeiHnJCwwpSkae0gaAcv')" icon="person">Submit</q-btn>
 
             </div>
         </div>
@@ -60,6 +60,21 @@
               </q-list>
           </div>
       </div>
+
+      <!-- userInfo: [
+       {
+        id: "12",
+        name: "jamal",
+        image: "jamal.jpg",
+        msg: [
+           {
+            id: "1",
+            text: "hi"
+          }
+        ]
+      }
+      
+      ] -->
 
 
       </div>
@@ -99,6 +114,7 @@ methods: {
   // Add data
     submit (id){
           db.collection('users/' + id + '/message')
+          // users/123471011/message/{text="I am a robot", text2 = "I am Text2"} 
           .add({ 
             text: this.message
           })
@@ -116,8 +132,9 @@ methods: {
     db.collection("users").get()
       .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-              let userData= {};
-              userData.id = doc.id
+
+              let userData= {};  //Empty Object defined
+              userData.id = doc.id  // Set document's id from db with object. 
               userData.name = doc.data().name
               userData.image = doc.data().image
               userData.msg = []
