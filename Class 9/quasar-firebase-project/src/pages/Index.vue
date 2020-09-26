@@ -1,5 +1,7 @@
 <template>
   <q-page class="flex flex-center">
+    <q-btn color="primary" label="Login" @click="showLogin = !showLogin"></q-btn>
+    <q-btn color="primary" label="Login" @click="showRegistration = !showRegistration"></q-btn>
      <div class="wrapper">
       <div class="row justify-center q-col-gutter-md q-mt-xl q-mb-xl q-px-xl">
         <div class="col-12">
@@ -35,6 +37,92 @@
 
       </div>
     </div>
+
+        <!-- Login Form  -->
+      <q-dialog v-model="showLogin">
+              <q-card style="width:400px">
+                <!-- close icon section -->
+          
+                <q-card-section class="row q-pb-none">
+                  <q-space />
+                  <q-btn icon="close" flat round dense v-close-popup />
+                </q-card-section>
+          
+                <!-- login user logo section -->
+          
+                <q-card-section class="text-center">
+                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
+                </q-card-section>
+          
+                <!-- User_id and Password input form section -->
+          
+                <q-card-section>
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="User Id">
+                    <template v-slot:append>
+                      <q-icon name="how_to_reg" color />
+                    </template>
+                  </q-input>
+          
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Password">
+                    <template v-slot:append>
+                      <q-icon name="vpn_key" color />
+                    </template>
+                  </q-input>
+          
+                  <div class="row justify-end">
+                    <q-btn color="secondary" icon-right="login" label="Submit" />
+                  </div>
+                </q-card-section>
+              </q-card>
+      </q-dialog>
+      
+      <!-- Registration Form  -->
+      <q-dialog v-model="showRegistration">
+              <q-card style="width:400px">
+                <!-- close icon section -->
+          
+                <q-card-section class="row q-pb-none">
+                  <q-space />
+                  <q-btn icon="close" flat round dense v-close-popup />
+                </q-card-section>
+          
+                <!-- login user logo section -->
+          
+                <q-card-section class="text-center">
+                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
+                </q-card-section>
+          
+                <!-- User_id and Password input form section -->
+          
+                <q-card-section>
+                  <!-- email element  -->
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Enter Your Email">
+                    <template v-slot:append>
+                      <q-icon name="email" color />
+                    </template>
+                  </q-input>
+                  
+                  <!-- name element  -->
+                    <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Enter Your Name">
+                      <template v-slot:append>
+                        <q-icon name="how_to_reg" color />
+                      </template>
+                    </q-input>
+                    <!-- Password Element  -->
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Set Password">
+                    <template v-slot:append>
+                      <q-icon name="vpn_key" color />
+                    </template>
+                  </q-input>
+          
+                  <div class="row justify-end">
+                    <q-btn color="secondary" icon-right="login" label="Submit" />
+                  </div>
+                </q-card-section>
+              </q-card>
+
+      </q-dialog>
+
   </q-page>
 </template>
 
@@ -47,6 +135,9 @@ export default {
   data () {
     return {
       name:"Jamal",
+      text:"",
+      showLogin:false,
+      showRegistration:false,
             message:"",
             img:"user1.webp",
             userInfo:[],
