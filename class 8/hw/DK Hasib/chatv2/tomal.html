@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <!--
-    WARNING! Make sure that you match all Quasar related
-    tags to the same version! (Below it's "@1.14.0")
-  -->
-
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/quasar@1.14.0/dist/quasar.min.css" rel="stylesheet" type="text/css">
@@ -39,7 +34,7 @@
                 <q-input v-model="message" label="Write something" />
             </div>
             <div>
-                <q-btn outline size="md" color="primary" @click="submit('JeiHnJCwwpSkae0gaAcv')" icon="person">Submit</q-btn>
+                <q-btn outline size="md" color="primary" @click="submit('yriasxFSvbR3DIwQv1Nq')" icon="person">Submit</q-btn>
 
             </div>
         </div>
@@ -60,21 +55,6 @@
               </q-list>
           </div>
       </div>
-
-      <!-- userInfo: [
-       {
-        id: "12",
-        name: "jamal",
-        image: "jamal.jpg",
-        msg: [
-           {
-            id: "1",
-            text: "hi"
-          }
-        ]
-      }
-      
-      ] -->
 
 
       </div>
@@ -103,9 +83,9 @@
         el: '#q-app',
         data: function () {
           return {
-            name:"Jamal",
+            name:"Tomal",
             message:"",
-            img:"user1.webp",
+            img:"user3.jpg",
             userInfo:[],
           }
         },
@@ -114,7 +94,6 @@ methods: {
   // Add data
     submit (id){
           db.collection('users/' + id + '/message')
-          // users/123471011/message/{text="I am a robot", text2 = "I am Text2"} 
           .add({ 
             text: this.message
           })
@@ -132,9 +111,8 @@ methods: {
     db.collection("users").get()
       .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-
-              let userData= {};  //Empty Object defined
-              userData.id = doc.id  // Set document's id from db with object. 
+              let userData= {};
+              userData.id = doc.id
               userData.name = doc.data().name
               userData.image = doc.data().image
               userData.msg = []
