@@ -1,12 +1,7 @@
 <template>
   <q-page class="flex flex-center">
-    
-    
-    
-    
-    
-    
-    
+    <q-btn color="primary" label="Login" @click="showLogin = !showLogin"></q-btn>
+    <q-btn color="primary" label="Login" @click="showRegistration = !showRegistration"></q-btn>
      <div class="wrapper">
       <div class="row justify-center q-col-gutter-md q-mt-xl q-mb-xl q-px-xl">
 
@@ -103,7 +98,7 @@
                 <q-input v-model="message" label="Write something" />
             </div>
             <div>
-                <q-btn outline size="md" color="primary" @click="submit('JeiHnJCwwpSkae0gaAcv')" icon="person">Submit</q-btn>
+                <q-btn outline size="md" color="primary" @click="submit(userId)" icon="person">Submit</q-btn>
 
             </div>
         </div>
@@ -128,33 +123,121 @@
 
       </div>
     </div>
+
+        <!-- Login Form  -->
+      <q-dialog v-model="showLogin">
+              <q-card style="width:400px">
+                <!-- close icon section -->
+          
+                <q-card-section class="row q-pb-none">
+                  <q-space />
+                  <q-btn icon="close" flat round dense v-close-popup />
+                </q-card-section>
+          
+                <!-- login user logo section -->
+          
+                <q-card-section class="text-center">
+                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
+                </q-card-section>
+          
+                <!-- User_id and Password input form section -->
+          
+                <q-card-section>
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="User Id">
+                    <template v-slot:append>
+                      <q-icon name="how_to_reg" color />
+                    </template>
+                  </q-input>
+          
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Password">
+                    <template v-slot:append>
+                      <q-icon name="vpn_key" color />
+                    </template>
+                  </q-input>
+          
+                  <div class="row justify-end">
+                    <q-btn color="secondary" icon-right="login" label="Submit" />
+                  </div>
+                </q-card-section>
+              </q-card>
+      </q-dialog>
+      
+      <!-- Registration Form  -->
+      <q-dialog v-model="showRegistration">
+              <q-card style="width:400px">
+                <!-- close icon section -->
+          
+                <q-card-section class="row q-pb-none">
+                  <q-space />
+                  <q-btn icon="close" flat round dense v-close-popup />
+                </q-card-section>
+          
+                <!-- login user logo section -->
+          
+                <q-card-section class="text-center">
+                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
+                </q-card-section>
+          
+                <!-- User_id and Password input form section -->
+          
+                <q-card-section>
+                  <!-- email element  -->
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.email" label="Enter Your Email">
+                    <template v-slot:append>
+                      <q-icon name="email" color />
+                    </template>
+                  </q-input>
+                  
+                  <!-- name element  -->
+                    <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.name" label="Enter Your Name">
+                      <template v-slot:append>
+                        <q-icon name="how_to_reg" color />
+                      </template>
+                    </q-input>
+                    <!-- Password Element  -->
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.password" label="Set Password">
+                    <template v-slot:append>
+                      <q-icon name="vpn_key" color />
+                    </template>
+                  </q-input>
+          
+                  <div class="row justify-end">
+                    <q-btn color="secondary"  @click="createNewUser()" label="Submit" />
+                  </div>
+                </q-card-section>
+              </q-card>
+
+      </q-dialog>
+
   </q-page>
 </template>
 
 
 <script>
-import {db} from "boot/firebase";
+import {db, dbAuth} from "boot/firebase";
 export default {
    name: 'PageIndex',
 
   data () {
     return {
       name:"Jamal",
-            message:"",
-            img:"user1.webp",
-            userInfo:[],
-            newuser: {
-              name: "",
-              email: "",
-              password: ""
-
-            }
-
-    };
+      text:"",
+      userId : '9EiUNwJZSgwfg0cWvvwa',
+      showLogin:false,
+      showRegistration:false,
+      message:"",
+      img:"user1.webp",
+      userInfo:[],
+      newUser: {
+        name: '',
+        email: '',
+        password: ''
+      }
+    }
   },
   computed: {},
 
- methods: {
+  methods: {
   // Add data
     submit (id){
           db.collection('users/' + id + '/message')
@@ -197,23 +280,44 @@ export default {
           console.error("Error adding document: ", error);
       });
       
-    } ,
-    createNewUser(){
+    },
 
+    createNewUser () {
+      // newUser = this.newUser
+      
+      // processing
+     dbAuth.createUserWithEmailAndPassword(this.newUser.email, this.newUser.password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
 
-          dbAuth.createUserWithEmailAndPassword(this.newuser.email, this.newuser.name).catch(function(error) {
-              // Handle Errors here.
-              var errorCode = error.code;
-              var errorMessage = error.message;
-              // ...
-    });
-
-    }    
+      // TODO:clear the new User
+      //  newuser.email , newUser.name, newUser.pass
     },
     
+    login () {
+      // TODO: call firebase login function with email & pass
+      // https://firebase.google.com/docs/auth/web/start#sign_in_existing_users
 
-    mounted(){
-      this.getUserFromFireStore()
+    },
+
+    logout () {
+      // TODO: call firebase logout function
+      // https://firebase.google.com/docs/auth/web/password-auth#next_steps
+
+
     }
+
+  },
+  
+  mounted(){
+    this.getUserFromFireStore()
+
+    // TODO: DO SOMETHING AFTER USER SIGN IN OR SIGN OUT
+    // https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data
+  }
+
 };
 </script>
