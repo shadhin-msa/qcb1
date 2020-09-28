@@ -9,13 +9,13 @@
         </q-toolbar-title>
 
       <q-tabs align="right">
+        <q-route-tab to="/home" label="Home" />
         <q-route-tab to="/login" label="Sing-in" />
         <q-route-tab to="/registration" label="Sing-up" />
-        <q-route-tab to="/home" label="Home" />
+        <q-route-tab to="/home" label="LogOut" />
       </q-tabs>
       
-     
-
+  
       </q-toolbar>
     </q-header>
 
