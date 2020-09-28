@@ -41,6 +41,7 @@
 
 <script>
 import {db, dbAuth} from "boot/firebase";
+import { mapState } from "vuex"
 export default {
    name: 'PageIndex',
 
@@ -53,7 +54,16 @@ export default {
       showRegistration:false,
       message:"",
       img:"user1.webp",
-      userInfo:[],
+      // userInfo:[
+      //   // { id: '1', name: 'sk', email: 'blabla@g.com', msg: [
+      //   //   { id: 'a', text:'txt' },
+      //   //   { id: 'b', text: 'bbbb' }
+      //   // ]},
+      //   // { id: '2', name: 'sk', email: 'blabla@g.com', msg: [
+      //   //   { id: '2a', text:'2a txt' },
+      //   //   { id: '2b', text: '2b bbbb' }
+      //   // ]}
+      // ],
       newUser: {
         name: '',
         email: '',
@@ -61,24 +71,34 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {    
+    userInfo () {
+      return this.$store.getters['user/getUsers']
+    } 
+  },
 
   methods: {
   // Add data
     submit (id){
-          db.collection('users/' + id + '/message')
-          .add({ 
-            text: this.message
-          })
-          .then((docRef) => {
-            this.userInfo = []
-            this.getUserFromFireStore();
-            this.message = ""
-          })
-          .catch(function(error) {
-            console.error("Error adding document: ", error);
-          });
+      console.log('called submit')
+      console.log('called submit')
+      this.$store.dispatch('user/doSomething')
+
+
+      //     db.collection('users/' + id + '/message')
+      //     .add({ 
+      //       text: this.message
+      //     })
+      //     .then((docRef) => {
+      //       this.userInfo = []
+      //       this.getUserFromFireStore();
+      //       this.message = ""
+      //     })
+      //     .catch(function(error) {
+      //       console.error("Error adding document: ", error);
+      //     });
        },
+
     // Read Data
     getUserFromFireStore(){
     db.collection("users").get()
@@ -139,7 +159,8 @@ export default {
   },
   
   mounted(){
-    this.getUserFromFireStore()
+    console.log(this.$store)
+    // this.getUserFromFireStore()
 
     // TODO: DO SOMETHING AFTER USER SIGN IN OR SIGN OUT
     // https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data
