@@ -8,20 +8,13 @@
           </span>
         </q-toolbar-title>
 
+      <q-tabs align="right">
+        <q-route-tab to="/login" label="Sing-in" />
+        <q-route-tab to="/registration" label="Sing-up" />
+        <q-route-tab to="/home" label="Home" />
+      </q-tabs>
       
-           
-         <q-list>
-              <q-item clickable to="/login">
-                  <q-item-section avatar>
-                    <q-item-label>Sing-in</q-item-label>
-                  </q-item-section>
-              </q-item>
-              <q-item clickable to="/registration">
-                  <q-item-section avatar>
-                    <q-item-label>Sing-up</q-item-label>
-                  </q-item-section>
-              </q-item>
-          </q-list>
+     
 
       </q-toolbar>
     </q-header>
