@@ -1,6 +1,5 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore";
-import "firebase/auth";
 
 
   var firebaseConfig = {
@@ -16,9 +15,10 @@ import "firebase/auth";
 
   };
   // Initialize Firebase
+  
+  
   let firebaseApp =  firebase.initializeApp(firebaseConfig);
   let db = firebase.firestore();
-  let dbAuth= firebase.auth();
 
-  export { db, dbAuth };
+  export { db, firebase };
 
