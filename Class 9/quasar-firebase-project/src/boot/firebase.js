@@ -4,14 +4,14 @@ import "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCapcbxik3Coih2CEbSjHEVk7PfCXIvwiA",
-  authDomain: "project-noakhali-with-qcb1.firebaseapp.com",
-  databaseURL: "https://project-noakhali-with-qcb1.firebaseio.com",
-  projectId: "project-noakhali-with-qcb1",
-  storageBucket: "project-noakhali-with-qcb1.appspot.com",
-  messagingSenderId: "350577226133",
-  appId: "1:350577226133:web:3c51c930a36ea7cd9e069c",
-  measurementId: "G-LM679JHLHR"
+  apiKey: "AIzaSyD429JAfsxFCcuXuc4pz3ZJLSLEgaYFshI",
+    authDomain: "fir-chat-453e9.firebaseapp.com",
+    databaseURL: "https://fir-chat-453e9.firebaseio.com",
+    projectId: "fir-chat-453e9",
+    storageBucket: "fir-chat-453e9.appspot.com",
+    messagingSenderId: "869254833780",
+    appId: "1:869254833780:web:872ca9a70505e058cd1321",
+    measurementId: "G-8YTKGS6C2B"
 }
 
 // Initialize Firebase
