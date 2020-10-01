@@ -26,6 +26,7 @@
                          <img :src="item.image">
                        </q-avatar>
                      </q-item-section>
+                     <q-btn color="deep-orange" glossy label="Delete" />
                     </q-item>
                    </div>
               </q-list>
@@ -71,7 +72,8 @@ export default {
       }
     }
   },
-  computed: {    
+ 
+ computed: {    
     userInfo () {
       return this.$store.getters['user/getUsers']
     } 
@@ -80,9 +82,8 @@ export default {
   methods: {
   // Add data
     submit (id){
-      console.log('called submit')
-      console.log('called submit')
-      this.$store.dispatch('user/doSomething')
+      let userMsg = this.message
+      this.$store.dispatch('user/addMessage', userMsg)
 
 
       //     db.collection('users/' + id + '/message')

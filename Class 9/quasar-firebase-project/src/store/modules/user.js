@@ -24,7 +24,13 @@ const mutations = {
   },
   addUserMutation (state, value) {
     state.usersInfo.push(value)
+  },
+  addMessageMutation (state, obj) {
+    console.log('Mutation')
+    console.log(obj)
+    state.usersInfo[obj.index].msg.push(obj.value)
   }
+  
 }
 
 // actions
@@ -47,17 +53,35 @@ const actions = {
 
   },
 
-  addMessage () {
-
-  },
-
-  deleteMessage () {
-
-  },
-
   deleteUser () {
     
-  }
+  },
+
+  // msg and arry pass index
+  addMessage ({commit}, payload) {
+    let payload2 = "kisu pari na"
+    let two = {
+      valueOne : "Ashish",
+      msg : "rafi"
+    }
+    console.log("jani na" + one)
+    console.log(two)
+    console.log(payload2.msg)
+    //   let newMessage = {
+    //     usersInfo : payload.index, // first bhul ..... 
+    //     msg: payload.msg,
+    // }
+    // console.log('action')
+    // console.log(payload)
+    // console.log(newMessage)
+    // commit('addMessageMutation', newMessage)
+  },
+
+  deleteMessage ({commit}, payload) {
+    commit('deleteMessage', payload)
+  },
+
+  
 }
 
 // getters
