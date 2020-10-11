@@ -9,7 +9,7 @@
     ]
   },
   "hosting": {
-    "target": "zebrachatting",
+    "target": "quasar-firebase-project", 
     "public": "dist/spa",
     "ignore": [
       "firebase.json",
