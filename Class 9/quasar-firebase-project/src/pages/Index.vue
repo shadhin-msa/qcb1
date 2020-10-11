@@ -1,7 +1,5 @@
 <template>
   <q-page class="flex flex-center">
-    <q-btn color="primary" label="Login" @click="showLogin = !showLogin"></q-btn>
-    <q-btn color="primary" label="Login" @click="showRegistration = !showRegistration"></q-btn>
      <div class="wrapper">
       <div class="row justify-center q-col-gutter-md q-mt-xl q-mb-xl q-px-xl">
 
@@ -60,20 +58,20 @@
           
                 <q-card-section>
                   <!-- email element  -->
-                  <q-input class="q-mb-md" color="secondary" outlined v-model="newuser.email" label="Enter Your Email">
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.email" label="Enter Your Email">
                     <template v-slot:append>
                       <q-icon name="email" color />
                     </template>
                   </q-input>
                   
                   <!-- name element  -->
-                    <q-input class="q-mb-md" color="secondary" outlined v-model="newuser.name" label="Enter Your Name">
+                    <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.name" label="Enter Your Name">
                       <template v-slot:append>
                         <q-icon name="how_to_reg" color />
                       </template>
                     </q-input>
                     <!-- Password Element  -->
-                  <q-input class="q-mb-md" color="secondary" outlined v-model="newuser.password" label="Set Password">
+                  <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.password" label="Set Password">
                     <template v-slot:append>
                       <q-icon name="vpn_key" color />
                     </template>
@@ -123,98 +121,13 @@
 
       </div>
     </div>
-
-        <!-- Login Form  -->
-      <q-dialog v-model="showLogin">
-              <q-card style="width:400px">
-                <!-- close icon section -->
-          
-                <q-card-section class="row q-pb-none">
-                  <q-space />
-                  <q-btn icon="close" flat round dense v-close-popup />
-                </q-card-section>
-          
-                <!-- login user logo section -->
-          
-                <q-card-section class="text-center">
-                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
-                </q-card-section>
-          
-                <!-- User_id and Password input form section -->
-          
-                <q-card-section>
-                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="User Id">
-                    <template v-slot:append>
-                      <q-icon name="how_to_reg" color />
-                    </template>
-                  </q-input>
-          
-                  <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Password">
-                    <template v-slot:append>
-                      <q-icon name="vpn_key" color />
-                    </template>
-                  </q-input>
-          
-                  <div class="row justify-end">
-                    <q-btn color="secondary" icon-right="login" label="Submit" />
-                  </div>
-                </q-card-section>
-              </q-card>
-      </q-dialog>
-      
-      <!-- Registration Form  -->
-      <q-dialog v-model="showRegistration">
-              <q-card style="width:400px">
-                <!-- close icon section -->
-          
-                <q-card-section class="row q-pb-none">
-                  <q-space />
-                  <q-btn icon="close" flat round dense v-close-popup />
-                </q-card-section>
-          
-                <!-- login user logo section -->
-          
-                <q-card-section class="text-center">
-                  <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
-                </q-card-section>
-          
-                <!-- User_id and Password input form section -->
-          
-                <q-card-section>
-                  <!-- email element  -->
-                  <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.email" label="Enter Your Email">
-                    <template v-slot:append>
-                      <q-icon name="email" color />
-                    </template>
-                  </q-input>
-                  
-                  <!-- name element  -->
-                    <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.name" label="Enter Your Name">
-                      <template v-slot:append>
-                        <q-icon name="how_to_reg" color />
-                      </template>
-                    </q-input>
-                    <!-- Password Element  -->
-                  <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.password" label="Set Password">
-                    <template v-slot:append>
-                      <q-icon name="vpn_key" color />
-                    </template>
-                  </q-input>
-          
-                  <div class="row justify-end">
-                    <q-btn color="secondary"  @click="createNewUser()" label="Submit" />
-                  </div>
-                </q-card-section>
-              </q-card>
-
-      </q-dialog>
-
   </q-page>
 </template>
 
 
 <script>
 import {db, dbAuth} from "boot/firebase";
+import { mapState } from "vuex"
 export default {
    name: 'PageIndex',
 
@@ -227,7 +140,16 @@ export default {
       showRegistration:false,
       message:"",
       img:"user1.webp",
-      userInfo:[],
+      // userInfo:[
+      //   // { id: '1', name: 'sk', email: 'blabla@g.com', msg: [
+      //   //   { id: 'a', text:'txt' },
+      //   //   { id: 'b', text: 'bbbb' }
+      //   // ]},
+      //   // { id: '2', name: 'sk', email: 'blabla@g.com', msg: [
+      //   //   { id: '2a', text:'2a txt' },
+      //   //   { id: '2b', text: '2b bbbb' }
+      //   // ]}
+      // ],
       newUser: {
         name: '',
         email: '',
@@ -235,24 +157,34 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {    
+    userInfo () {
+      return this.$store.getters['user/getUsers']
+    } 
+  },
 
   methods: {
   // Add data
     submit (id){
-          db.collection('users/' + id + '/message')
-          .add({ 
-            text: this.message
-          })
-          .then((docRef) => {
-            this.userInfo = []
-            this.getUserFromFireStore();
-            this.message = ""
-          })
-          .catch(function(error) {
-            console.error("Error adding document: ", error);
-          });
+      console.log('called submit')
+      console.log('called submit')
+      this.$store.dispatch('user/doSomething')
+
+
+      //     db.collection('users/' + id + '/message')
+      //     .add({ 
+      //       text: this.message
+      //     })
+      //     .then((docRef) => {
+      //       this.userInfo = []
+      //       this.getUserFromFireStore();
+      //       this.message = ""
+      //     })
+      //     .catch(function(error) {
+      //       console.error("Error adding document: ", error);
+      //     });
        },
+
     // Read Data
     getUserFromFireStore(){
     db.collection("users").get()
@@ -313,11 +245,30 @@ export default {
   },
   
   mounted(){
-    this.getUserFromFireStore()
+    console.log(this.$store)
+    // this.getUserFromFireStore()
+    let store = this.$store 
 
     // TODO: DO SOMETHING AFTER USER SIGN IN OR SIGN OUT
     // https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data
-  }
+
+   dbAuth.onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          let loggedUser = {}
+          loggedUser.email = user.email;
+           loggedUser.uid = user.uid
+
+           store.dispatch('user/storeAuthenticateUser', loggedUser)
+         
+      
+        } else {
+          // User is signed out.
+          // ...
+           store.dispatch('user/storeAuthenticateUser', {})
+        }
+      });
+        }
 
 };
 </script>
