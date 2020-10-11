@@ -1,9 +1,9 @@
 {
-  "name": "quasar-firebase-project",
+  "name": "testfile",
   "version": "0.0.1",
-  "description": "Rafi and Dk first Quasar project with firebase intregration",
+  "description": "A Quasar Framework app",
   "productName": "Quasar App",
-  "author": "diia1000837hasib <mdhasib522@gmail.com>",
+  "author": "Ashishshill <aks3ashish@gmail.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
@@ -13,7 +13,6 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "core-js": "^3.6.5",
-    "firebase": "^7.21.0",
     "quasar": "^1.0.0"
   },
   "devDependencies": {
@@ -39,7 +38,5 @@
     "node": ">= 10.18.1",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
-  },
-  "main": ".eslintrc.js",
-  "license": "ISC"
+  }
 }

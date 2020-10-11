@@ -29,10 +29,18 @@ const mutations = {
   addUserMutation (state, value) {
     state.usersInfo.push(value)
   },
+<<<<<<< HEAD
   storeUser(state, value){
     state.userAuth = value
 
+=======
+  addMessageMutation (state, obj) {
+    console.log('Mutation')
+    console.log(obj)
+    state.usersInfo[obj.index].msg.push(obj.value)
+>>>>>>> a3f22e20ba95b5996354e17fa58b34bf86244b86
   }
+  
 }
 
 // actions
@@ -55,14 +63,35 @@ const actions = {
 
   },
 
-  addMessage () {
-
+  deleteUser () {
+    
   },
 
-  deleteMessage () {
-
+  // msg and arry pass index
+  addMessage ({commit}, payload) {
+    let payload2 = "kisu pari na"
+    let two = {
+      valueOne : "Ashish",
+      msg : "rafi"
+    }
+    console.log("jani na" + one)
+    console.log(two)
+    console.log(payload2.msg)
+    //   let newMessage = {
+    //     usersInfo : payload.index, // first bhul ..... 
+    //     msg: payload.msg,
+    // }
+    // console.log('action')
+    // console.log(payload)
+    // console.log(newMessage)
+    // commit('addMessageMutation', newMessage)
   },
 
+  deleteMessage ({commit}, payload) {
+    commit('deleteMessage', payload)
+  },
+
+<<<<<<< HEAD
   deleteUser () {
     
   },
@@ -70,6 +99,9 @@ const actions = {
   storeAuthenticateUser ({commit}, payload ){
       commit('storeUser', payload)
   }
+=======
+  
+>>>>>>> a3f22e20ba95b5996354e17fa58b34bf86244b86
 }
 
 // getters
