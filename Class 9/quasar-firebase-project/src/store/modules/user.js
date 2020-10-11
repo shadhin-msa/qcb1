@@ -29,16 +29,9 @@ const mutations = {
   addUserMutation (state, value) {
     state.usersInfo.push(value)
   },
-<<<<<<< HEAD
   storeUser(state, value){
     state.userAuth = value
 
-=======
-  addMessageMutation (state, obj) {
-    console.log('Mutation')
-    console.log(obj)
-    state.usersInfo[obj.index].msg.push(obj.value)
->>>>>>> a3f22e20ba95b5996354e17fa58b34bf86244b86
   }
   
 }
@@ -91,7 +84,6 @@ const actions = {
     commit('deleteMessage', payload)
   },
 
-<<<<<<< HEAD
   deleteUser () {
     
   },
@@ -99,9 +91,6 @@ const actions = {
   storeAuthenticateUser ({commit}, payload ){
       commit('storeUser', payload)
   }
-=======
-  
->>>>>>> a3f22e20ba95b5996354e17fa58b34bf86244b86
 }
 
 // getters
