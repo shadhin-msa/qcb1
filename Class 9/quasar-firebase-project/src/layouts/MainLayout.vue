@@ -10,9 +10,9 @@
 
       <q-tabs align="right">
         <q-route-tab to="/home" label="Home" />
-        <q-route-tab to="/login" label="Sing-in" />
-        <q-route-tab to="/registration" label="Sing-up" />
-        <q-route-tab to="/home" label="LogOut" />
+        <q-route-tab to="/login" label="Log-in" />
+        <q-route-tab to="/registration" label="Sign-Up" />
+        <q-route-tab to="/home" label="LogOut" @click="logout"/>
       </q-tabs>
       
   
@@ -28,12 +28,23 @@
 </template>
 
 <script>
+import {dbAuth} from "boot/firebase";
 
 export default {
   name: 'MainLayout',
   data () {
     return {
       
+    }
+  },
+  methods: {
+    logout(){
+      dbAuth.signOut().then(function() {
+            // Sign-out successful.
+              this.$router.push('registration')
+          }).catch(function(error) {
+            // An error happened.
+          });
     }
   }
 }
