@@ -1,6 +1,6 @@
 <template>
-<div align="center">
-   <q-card style="width:400px" >
+  <div align="center">
+    <q-card style="width:400px">
       <!-- close icon section -->
 
       <q-card-section class="row q-pb-none">
@@ -23,14 +23,14 @@
             <q-icon name="email" color />
           </template>
         </q-input>
-        
+
         <!-- name element  -->
-          <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.name" label="Enter Your Name">
-            <template v-slot:append>
-              <q-icon name="how_to_reg" color />
-            </template>
-          </q-input>
-          <!-- Password Element  -->
+        <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.name" label="Enter Your Name">
+          <template v-slot:append>
+            <q-icon name="how_to_reg" color />
+          </template>
+        </q-input>
+        <!-- Password Element  -->
         <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.password" label="Set Password">
           <template v-slot:append>
             <q-icon name="vpn_key" color />
@@ -38,60 +38,58 @@
         </q-input>
 
         <div class="row justify-end">
-          <q-btn color="secondary"  @click="createNewUser()" label="Submit" />
+          <q-btn color="secondary" @click="createNewUser()" label="Submit" />
         </div>
       </q-card-section>
     </q-card>
-</div>
+  </div>
 </template>
 
 <script>
-import { dbAuth} from "boot/firebase";
+import { dbAuth } from "boot/firebase";
 export default {
   name: 'Login',
   data () {
     return {
-      text:'',
-       newUser: {
+      text: '',
+      newUser: {
         name: '',
         email: '',
         password: ''
       }
-    
+
     }
   },
-      methods:{
-        createNewUser () {
-          let userObj = this.newUser
-          this.$store.dispatch('user/userAdd', userObj)
-          // processing
-          // dbAuth.createUserWithEmailAndPassword(this.newUser.email, this.newUser.password)
-          // .then(result => {
-          //     alert("Account Successfully Create for()");
-          //     console.log(result)
-          //     // this.newUser.email = ""
-          //     // this.newUser.name = ""
-          //     // this.newUser.password = ""
+  methods: {
+    createNewUser () {
+      let userObj = this.newUser
+      // this.$store.dispatch('user/userAdd', userObj)
+      // processing
+      dbAuth.createUserWithEmailAndPassword(this.newUser.email, this.newUser.password)
+        .then(result => {
+          alert("Account Successfully Create for()");
+          console.log(result)
+          this.newUser.email = ""
+          this.newUser.name = ""
+          this.newUser.password = ""
 
-          //     // this.$router.push('home')
+          this.$router.push('home')
 
 
-          //   })
-          //   .catch(function(error) {
-          //       console.error("Error: ", error);
-          //   });
-          //   // TODO:clear the new User
-          //   //  newuser.email , newUser.name, newUser.pass
-          // },
-        }
-    
-     }
+        })
+        .catch(function (error) {
+          console.error("Error: ", error);
+        });
+      // TODO:clear the new User
+      //  newuser.email , newUser.name, newUser.pass
+
+    }
+
+  }
 }
 </script>
 
 
 
-<style lang="stylus" scoped>
-
-</style>
+<style lang="stylus" scoped></style>
 

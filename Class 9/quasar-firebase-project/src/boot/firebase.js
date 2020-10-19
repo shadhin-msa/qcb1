@@ -4,21 +4,22 @@ import "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB9KHz0nxh_WN-3Lph5UAw663goBNZ1HXw",
-  authDomain: "test-project-21e3f.firebaseapp.com",
-  databaseURL: "https://test-project-21e3f.firebaseio.com",
-  projectId: "test-project-21e3f",
-  storageBucket: "test-project-21e3f.appspot.com",
-  messagingSenderId: "198125223792",
-  appId: "1:198125223792:web:66e68fbf258810a97a59b5"
+  apiKey: "AIzaSyCapcbxik3Coih2CEbSjHEVk7PfCXIvwiA",
+  authDomain: "project-noakhali-with-qcb1.firebaseapp.com",
+  databaseURL: "https://project-noakhali-with-qcb1.firebaseio.com",
+  projectId: "project-noakhali-with-qcb1",
+  storageBucket: "project-noakhali-with-qcb1.appspot.com",
+  messagingSenderId: "350577226133",
+  appId: "1:350577226133:web:3c51c930a36ea7cd9e069c",
+  measurementId: "G-LM679JHLHR"
 }
 
 
 
 // Initialize Firebase
-let firebaseApp =  firebase.initializeApp(firebaseConfig);
-let db = firebase.firestore();
-let dbAuth = firebase.auth()
+let shadhinDb =  firebase.initializeApp(firebaseConfig);
+let db = shadhinDb.firestore();
+let dbAuth = shadhinDb.auth()
 
 export { db, dbAuth };
 

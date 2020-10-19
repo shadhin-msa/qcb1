@@ -164,9 +164,30 @@ export default {
   mounted () {
     console.log(this.$store)
     // this.getUserFromFireStore()
-
+    let store = this.$store
     // TODO: DO SOMETHING AFTER USER SIGN IN OR SIGN OUT
     // https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data
+
+    dbAuth.onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        let loggedInUser = {}
+        loggedInUser.email = user.email;
+        loggedInUser.uid = user.uid
+
+        //  loggedInUser = {
+        //    email: user.email,
+        //    uid: user.uid
+        //  }
+
+        store.dispatch('user/storeAuthuserDetails', loggedInUser)
+        console.log('store')
+        console.log(store)
+      } else {
+        // User is signed out.
+        store.dispatch('user/storeAuthuserDetails', {})
+      }
+    });
   }
 
 };

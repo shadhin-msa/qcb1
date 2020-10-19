@@ -21,7 +21,9 @@ const state = {
         { id: "2b", text: "2b bbbb" }
       ]
     }
-  ]
+  ],
+  authUser: {
+  }
 };
 
 const mutations = {
@@ -35,6 +37,10 @@ const mutations = {
 
   addMessageMutation(state, obj) {
     state.usersInfo[obj.index].msg.push(obj.newMessage)
+  },
+
+  storeAuthUserInstead(state, value) {
+    state.authUser = value
   }
 };
 
@@ -74,6 +80,12 @@ const actions = {
 
   deleteMessage({ commit }, payload) {
     commit("deleteMessage", payload);
+  },
+
+  // storing authenticated user info
+  storeAuthuserDetails({commit}, payload) {
+    // filtering the data
+    commit('storeAuthUserInstead', payload)
   }
 };
 
