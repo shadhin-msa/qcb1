@@ -48,7 +48,7 @@
 <script>
 import { dbAuth } from "boot/firebase";
 export default {
-  name: 'Login',
+  name: 'Registration',
   data () {
     return {
       text: '',
@@ -82,11 +82,11 @@ export default {
         });
       // TODO:clear the new User
       //  newuser.email , newUser.name, newUser.pass
-
-    }
-
+    },
   }
+
 }
+
 </script>
 
 

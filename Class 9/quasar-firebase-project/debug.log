@@ -1,0 +1,13 @@
+[1010/215356.014:ERROR:settings.cc(430)] Settings version is not 5
+[1011/204538.720:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1012/003153.142:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1012/003153.098:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1012/003153.339:ERROR:exception_snapshot_win.cc(100)] thread ID 13204 not found in process
+[1012/003153.339:ERROR:exception_snapshot_win.cc(100)] thread ID 6940 not found in process
+[1012/003153.339:ERROR:process_memory_win.cc(73)] ReadMemory at 0xc01f7fe800 of 16 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[1012/003153.340:ERROR:exception_snapshot_win.cc(211)] EXCEPTION_POINTERS read failed
+[1012/003153.340:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1012/112106.244:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1012/114552.974:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1012/170852.984:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/000046.520:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

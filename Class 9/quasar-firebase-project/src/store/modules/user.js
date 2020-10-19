@@ -3,28 +3,24 @@ import {uid} from 'quasar'
 // state
 const state = {
   usersInfo: [
-    {
-      id: "e5e4",
-      fullName: "sk",
-      email: "blabla@g.com",
-      msg: [
-        { id: "a", text: "txt" },
-        { id: "b", text: "bbbb" }
-      ]
-    },
-    {
-      id: "srerg",
-      name: "sk",
-      email: "blabla@g.com",
-      msg: [
-        { id: "2a", text: "2a txt" },
-        { id: "2b", text: "2b bbbb" }
-      ]
-    }
+    // { id: '1', fullName: 'sk', email: 'blabla@g.com', 
+    //   msg: [
+    //     { id: 'a', text:'txt' },
+    //     { id: 'b', text: 'bbbb' }
+    //   ]
+    // }, 
+    // { id: '2', name: 'sk', email: 'blabla@g.com', 
+    //   msg: [
+    //     { id: '2a', text:'2a txt' },
+    //     { id: '2b', text: '2b bbbb' }
+    //   ]
+    // }
   ],
-  authUser: {
+
+  userAuth: {
+  
   }
-};
+}
 
 const mutations = {
   clearDBMutation(state, value) {
@@ -38,9 +34,10 @@ const mutations = {
   addMessageMutation(state, obj) {
     state.usersInfo[obj.index].msg.push(obj.newMessage)
   },
+  storeUser(state, value){
+  
+    state.userAuth = value
 
-  storeAuthUserInstead(state, value) {
-    state.authUser = value
   }
 };
 
@@ -82,16 +79,19 @@ const actions = {
     commit("deleteMessage", payload);
   },
 
+  deleteUser () {
+    
+  },
   // storing authenticated user info
-  storeAuthuserDetails({commit}, payload) {
-    // filtering the data
-    commit('storeAuthUserInstead', payload)
+  storeAuthenticateUser ({commit}, payload ){
+      commit('storeUser', payload)
   }
-};
+}
 
 // getters
 const getters = {
   getUsers: state => state.usersInfo,
+  getAuthUser: state => state.userAuth,
   hasiberDadiGon: state => {
     let allUser = state.usersInfo;
     // filtert users by age
