@@ -3,18 +3,18 @@
 // state
 const state = {
   usersInfo: [
-    { id: '1', fullName: 'sk', email: 'blabla@g.com', 
-      msg: [
-        { id: 'a', text:'txt' },
-        { id: 'b', text: 'bbbb' }
-      ]
-    }, 
-    { id: '2', name: 'sk', email: 'blabla@g.com', 
-      msg: [
-        { id: '2a', text:'2a txt' },
-        { id: '2b', text: '2b bbbb' }
-      ]
-    }
+    // { id: '1', fullName: 'sk', email: 'blabla@g.com', 
+    //   msg: [
+    //     { id: 'a', text:'txt' },
+    //     { id: 'b', text: 'bbbb' }
+    //   ]
+    // }, 
+    // { id: '2', name: 'sk', email: 'blabla@g.com', 
+    //   msg: [
+    //     { id: '2a', text:'2a txt' },
+    //     { id: '2b', text: '2b bbbb' }
+    //   ]
+    // }
   ],
 
   userAuth: {
@@ -30,6 +30,7 @@ const mutations = {
     state.usersInfo.push(value)
   },
   storeUser(state, value){
+  
     state.userAuth = value
 
   }
@@ -96,6 +97,7 @@ const actions = {
 // getters
 const getters = {
   getUsers: state => state.usersInfo,
+  getAuthUser: state => state.userAuth,
   hasiberDadiGon: state => {
     let allUser = state.usersInfo
     // filtert users by age 

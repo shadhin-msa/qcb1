@@ -9,10 +9,11 @@
         </q-toolbar-title>
 
       <q-tabs align="right">
-        <q-route-tab to="/home" label="Home" />
-        <q-route-tab to="/login" label="Log-in" />
-        <q-route-tab to="/registration" label="Sign-Up" />
-        <q-route-tab to="/home" label="LogOut" @click="logout"/>
+        <q-route-tab to="/home" v-if="isUserLoggedIn" label="Home" />
+        <q-route-tab to="/login"  v-if="!isUserLoggedIn" label="Log-in" />
+        <!--  -->
+        <q-route-tab to="/registration" v-if="!isUserLoggedIn"  label="Sign-Up" />
+        <q-route-tab to="/home" v-if="isUserLoggedIn" label="logOut" @click="logout()" />
       </q-tabs>
       
   
@@ -34,16 +35,37 @@ export default {
   name: 'MainLayout',
   data () {
     return {
-      
+      loggedin: false,
+    }
+  },
+  computed: {
+    isUserLoggedIn(){
+      let authUser = this.$store.getters['user/getAuthUser']
+      // authUser = "rafi" 
+      // authUser = {}
+      // undefined, null, 0 and false er jonno sob false. ................................
+      // otherwise sob true. 
+    //  if (!!authUser.uid){
+    //    console.log("authUserTrue")
+    //  }
+    //  else{
+    //    console.log("authUserFalse")
+    //  }
+      return !!authUser.uid
+      // if (authUser){}
     }
   },
   methods: {
     logout(){
+      console.log("abba")
+      let router = this.$router
       dbAuth.signOut().then(function() {
+        
             // Sign-out successful.
-              this.$router.push('registration')
+             console.log("abbas");
+              router.push('login')
           }).catch(function(error) {
-            // An error happened.
+            console.log(error)// An error happened. console.lo
           });
     }
   }
