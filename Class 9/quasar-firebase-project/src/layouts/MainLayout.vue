@@ -24,8 +24,7 @@
 
 <script>
 import { dbAuth } from "boot/firebase";
-
-import { dbAuth } from "boot/firebase";
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'MainLayout',
@@ -35,21 +34,10 @@ export default {
     }
   },
   computed: {
-    isUserLoggedIn () {
-      let authUser = this.$store.getters['user/getAuthUser']
-      // authUser = "rafi" 
-      // authUser = {}
-      // undefined, null, 0 and false er jonno sob false. ................................
-      // otherwise sob true. 
-      //  if (!!authUser.uid){
-      //    console.log("authUserTrue")
-      //  }
-      //  else{
-      //    console.log("authUserFalse")
-      //  }
-      return !!authUser.uid
-      // if (authUser){}
-    }
+    // isUserLoggedIn () {
+    //   return this.$store.getters['user/isUserLoggedIn']
+    // }
+    ...mapGetters('user', ['isUserLoggedIn'])
   },
   methods: {
     logout () {
@@ -64,6 +52,33 @@ export default {
         console.log(error)// An error happened. console.lo
       });
     }
+  },
+  mounted () {
+    console.log(this.$store)
+    // this.getUserFromFireStore()
+    let store = this.$store
+    let router = this.$router
+
+    // TODO: DO SOMETHING AFTER USER SIGN IN OR SIGN OUT
+    // https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data
+
+    dbAuth.onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        let loggedUser = {}
+        loggedUser.email = user.email;
+        loggedUser.uid = user.uid
+
+        store.dispatch('user/storeAuthenticateUser', loggedUser)
+        router.push('/home')
+
+      } else {
+        // User is signed out.
+        // ...
+        store.dispatch('user/storeAuthenticateUser', null)
+        router.push('/login')
+      }
+    });
   }
 }
 </script>

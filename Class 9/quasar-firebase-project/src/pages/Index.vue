@@ -2,86 +2,6 @@
   <q-page class="flex flex-center">
     <div class="wrapper">
       <div class="row justify-center q-col-gutter-md q-mt-xl q-mb-xl q-px-xl">
-        <!-- Login Form  -->
-        <q-card style="width:400px">
-          <!-- close icon section -->
-
-          <q-card-section class="row q-pb-none">
-            <q-space />
-            <q-btn icon="close" flat round dense v-close-popup />
-          </q-card-section>
-
-          <!-- login user logo section -->
-
-          <q-card-section class="text-center">
-            <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
-          </q-card-section>
-
-          <!-- User_id and Password input form section -->
-
-          <q-card-section>
-            <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="User Id">
-              <template v-slot:append>
-                <q-icon name="how_to_reg" color />
-              </template>
-            </q-input>
-
-            <q-input class="q-mb-md" color="secondary" outlined v-model="text" label="Password">
-              <template v-slot:append>
-                <q-icon name="vpn_key" color />
-              </template>
-            </q-input>
-
-            <div class="row justify-end">
-              <q-btn color="secondary" icon-right="login" label="Submit" />
-            </div>
-          </q-card-section>
-        </q-card>
-
-        <!-- Registration Form  -->
-        <q-card style="width:400px">
-          <!-- close icon section -->
-
-          <q-card-section class="row q-pb-none">
-            <q-space />
-            <q-btn icon="close" flat round dense v-close-popup />
-          </q-card-section>
-
-          <!-- login user logo section -->
-
-          <q-card-section class="text-center">
-            <q-avatar rounded size="100px" font-size="82px" color="teal" text-color="white" icon="face" />
-          </q-card-section>
-
-          <!-- User_id and Password input form section -->
-
-          <q-card-section>
-            <!-- email element  -->
-            <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.email" label="Enter Your Email">
-              <template v-slot:append>
-                <q-icon name="email" color />
-              </template>
-            </q-input>
-
-            <!-- name element  -->
-            <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.name" label="Enter Your Name">
-              <template v-slot:append>
-                <q-icon name="how_to_reg" color />
-              </template>
-            </q-input>
-            <!-- Password Element  -->
-            <q-input class="q-mb-md" color="secondary" outlined v-model="newUser.password" label="Set Password">
-              <template v-slot:append>
-                <q-icon name="vpn_key" color />
-              </template>
-            </q-input>
-
-            <div class="row justify-end">
-              <q-btn color="secondary" icon-right="login" @click="createNewUser" label="Submit" />
-            </div>
-          </q-card-section>
-        </q-card>
-
         <div class="col-12">
           <div class="box one q-pa-md text-center">
             <span class="text-h4">{{name}}</span>
@@ -242,29 +162,7 @@ export default {
   },
 
   mounted () {
-    console.log(this.$store)
-    // this.getUserFromFireStore()
-    let store = this.$store
 
-    // TODO: DO SOMETHING AFTER USER SIGN IN OR SIGN OUT
-    // https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data
-
-    dbAuth.onAuthStateChanged(function (user) {
-      if (user) {
-        // User is signed in.
-        let loggedUser = {}
-        loggedUser.email = user.email;
-        loggedUser.uid = user.uid
-
-        store.dispatch('user/storeAuthenticateUser', loggedUser)
-
-
-      } else {
-        // User is signed out.
-        // ...
-        store.dispatch('user/storeAuthenticateUser', {})
-      }
-    });
   }
 
 };

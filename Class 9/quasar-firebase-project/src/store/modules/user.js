@@ -17,9 +17,7 @@ const state = {
     // }
   ],
 
-  userAuth: {
-  
-  }
+  userAuth: null
 }
 
 const mutations = {
@@ -98,6 +96,13 @@ const getters = {
     // only return user those age is above 100
 
     // array filter
+  },
+  isUserLoggedIn: state => {
+    if (state.userAuth && state.userAuth.uid) {
+      return true
+    } else {
+      return false
+    }
   }
 };
 
